@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú - Moisésitas Restaurante</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <style>
+        /* Copia los estilos principales de la página index para consistencia */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #fffaf0;
+            color: #3c2f2f;
+            line-height: 1.7;
+        }
+        .container { width: 90%; max-width: 1366px; margin: 0 auto; }
+        h2 { 
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            color: #c2410c;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            width: 140px;
+            height: 6px;
+            background: #15803d;
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+
+        /* Nav y sidebar (igual que principal) */
+        nav { position: fixed; top: 0; width: 100%; background: rgba(255,250,240,0.96); backdrop-filter: blur(10px); box-shadow: 0 4px 20px rgba(0,0,0,0.08); z-index: 1000; padding: 15px 0; }
+        #navigation { display: flex; justify-content: space-between; align-items: center; }
+        #main-nav { display: flex; list-style: none; }
+        #main-nav li { margin: 0 1.3rem; }
+        #main-nav a, #navigation a[href="#contacto"] { color: #3c2f2f; text-decoration: none; text-transform: uppercase; font-weight: 500; transition: all 0.3s; }
+        #main-nav a:hover, #navigation a[href="#contacto"]:hover { color: #c2410c; }
+        #navigation a[href="#contacto"] { border: 2px solid #c2410c; padding: 10px 2.2em; border-radius: 30px; color: #c2410c; font-weight: 600; }
+        #navigation a[href="#contacto"]:hover { background: #c2410c; color: white; }
+        #hamburger { display: none; flex-direction: column; width: 32px; height: 24px; cursor: pointer; }
+        #hamburger span { height: 4px; background: #c2410c; border-radius: 2px; }
+        #sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100vh; background: #3c2f2f; color: white; transition: left 0.4s ease; z-index: 1100; padding-top: 90px; box-shadow: 6px 0 30px rgba(0,0,0,0.6); }
+        #sidebar.active { left: 0; }
+        #sidebar ul { list-style: none; padding: 0; margin: 0; }
+        #sidebar li { padding: 1.2rem 2rem; border-bottom: 1px solid rgba(255,255,255,0.12); }
+        #sidebar a { color: white; text-decoration: none; font-size: 1.1rem; display: block; }
+        #sidebar a:hover { color: #c2410c; }
+        #overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.75); opacity: 0; visibility: hidden; z-index: 1000; transition: all 0.4s; }
+        #overlay.active { opacity: 1; visibility: visible; }
+
+        @media (max-width: 959px) {
+            #main-nav, #navigation a[href="#contacto"] { display: none !important; }
+            #hamburger { display: flex !important; }
+        }
+        @media (min-width: 960px) { #hamburger { display: none !important; } }
+
+        /* Hero del menú */
+        #hero-menu {
+            background: linear-gradient(rgba(194,65,12,0.35), rgba(194,65,12,0.15)), url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat fixed;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+        #hero-menu h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            text-shadow: 4px 4px 15px rgba(0,0,0,0.7);
+        }
+
+        /* Grid de platillos */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
+            margin: 5rem 0;
+        }
+        .menu-item {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(200,65,12,0.12);
+            transition: all 0.4s;
+            text-align: center;
+        }
+        .menu-item:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(200,65,12,0.25); }
+        .menu-item img { width: 100%; height: 220px; object-fit: cover; }
+        .menu-item h3 { font-size: 1.6rem; color: #c2410c; margin: 1rem 0 0.5rem; padding: 0 1rem; }
+        .menu-item .price { font-size: 1.8rem; font-weight: 700; color: #c2410c; margin: 0.5rem 0; }
+        .menu-item p { padding: 0 1.5rem 1.5rem; color: #4a3c3c; font-size: 1rem; }
+
+        footer { background: #3c2f2f; color: #fffaf0; text-align: center; padding: 3rem 0 1.5rem; }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación igual que principal -->
+    <nav>
+        <div id="navigation" class="container">
+            <a href="index.html"><img src="images/logosinfon.png" alt="Moisésitas Restaurante" style="height:65px;"></a>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512"><path fill="#c2410c" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
+                55-1234-5678
+            </span>
+            <div id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+            <ul id="main-nav">
+                <li><a href="index.html">inicio</a></li>
+                <li><a href="index.html#acercade">nosotros</a></li>
+                <li><a href="index.html#servicios">platillos</a></li>
+                <li><a href="index.html#paquetes">especialidades</a></li>
+            </ul>
+            <a href="index.html#contacto">contacto</a>
+        </div>
+
+        <div id="sidebar">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#acercade">Nosotros</a></li>
+                <li><a href="index.html#servicios">Platillos</a></li>
+                <li><a href="index.html#paquetes">Especialidades</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </div>
+        <div id="overlay"></div>
+    </nav>
+
+    <!-- Hero del menú -->
+    <section id="hero-menu">
+        <h1>Nuestro Menú</h1>
+    </section>
+
+    <!-- Lista de platillos (grid similar a tarjetas de principal) -->
+    <section class="container">
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mole Poblano">
+                <h3>Mole Poblano</h3>
+                <div class="price">$280</div>
+                <p>Pollo en mole tradicional con chocolate, chiles y especias, servido con arroz rojo y tortillas calientitas.</p>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://p3.hippopx.com/preview/275/477/pozole-soup-vibrant-mexican-pozole-bowl-fresh-lime-slices-close-up-mexican-cuisine-lime-wedges-lettuce-radish-traditional-dish.jpg" alt="Pozole Rojo">
+                <h3>Pozole Rojo</h3>
+                <div class="price">$220</div>
+                <p>Caldo rico con maíz pozolero, cerdo y chiles guajillo. Acompañado de lechuga, rábano, orégano y limón.</p>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Chiles_en_nogada%2C_caseros%2C_M%C3%A9xico_2D.jpg/800px-Chiles_en_nogada%2C_caseros%2C_M%C3%A9xico_2D.jpg" alt="Chiles en Nogada">
+                <h3>Chiles en Nogada</h3>
+                <div class="price">$350</div>
+                <p>Chile poblano relleno de picadillo dulce, cubierto de nogada cremosa y granada fresca. Especial de temporada.</p>
+            </div>
+
+            <!-- Agrega más platillos duplicando bloques -->
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1551500225-b1fd7a961e26?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tacos al Pastor">
+                <h3>Tacos al Pastor</h3>
+                <div class="price">$180</div>
+                <p>Tacos con carne al pastor, piña asada, cilantro, cebolla y salsa. 5 piezas.</p>
+            </div>
+
+            <!-- Puedes seguir agregando... -->
+        </div>
+    </section>
+
+    <!-- Footer igual que principal -->
+    <footer>
+        <div class="container">
+            <p style="font-size:1.4rem; margin-bottom:1rem;">Moisésitas Restaurante</p>
+            <p>Av. Ejemplo 123, Col. Centro, CDMX</p>
+            <p>55-1234-5678 | moisesitas@email.com</p>
+            <p style="margin-top:2rem;">© 2025 Moisésitas Restaurante - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Script para hamburguesa (igual que principal) -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        sidebar.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
