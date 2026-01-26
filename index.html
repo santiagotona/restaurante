@@ -102,19 +102,46 @@
 
 		/* Sección Quiénes somos */
 		#seccionSegunda {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 3rem;
-			align-items: center;
-			margin: 6rem 0;
-		}
-		#seccionSegunda img {
-			flex: 1 1 40%;
-			max-width: 40%;
-			border-radius: 16px;
-			box-shadow: 0 12px 35px rgba(0,0,0,0.12);
-		}
-		#seccionSegunda div { flex: 1 1 55%; }
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;          /* ¡Esto centra horizontalmente todo el contenido! */
+    margin: 6rem auto;                /* Margen automático arriba/abajo y centrado */
+    max-width: 1200px;                /* Limita el ancho máximo para que no se estire demasiado */
+    padding: 0 1rem;                  /* Espacio lateral en móviles */
+}
+
+/* La imagen y el texto también se benefician del centrado */
+#seccionSegunda img {
+    flex: 1 1 40%;
+    max-width: 40%;
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+}
+
+#seccionSegunda div {
+    flex: 1 1 55%;
+    text-align: left;                 /* El texto se mantiene alineado a la izquierda dentro de su caja */
+}
+
+/* En móvil, todo se apila y centra */
+@media screen and (max-width: 959px) {
+    #seccionSegunda {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;           /* Centra el texto en móvil para que se vea equilibrado */
+    }
+
+    #seccionSegunda img {
+        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    #seccionSegunda div {
+        max-width: 90%;
+    }
+}
 
 		/* Servicios (ahora platillos destacados o tipo de experiencia) */
 		#seccionCuarta {
@@ -361,6 +388,11 @@
 #hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -7px);
 }
+.btn-menu:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 16px 40px rgba(194,65,12,0.5) !important;
+    background: linear-gradient(135deg, #e85d04, #c2410c) !important;
+}
 	</style>
 </head>
 <body>
@@ -469,76 +501,34 @@
 				</div>
 			</section>
 
-			<section style="background:#fffaf0; padding:6rem 0;">
-    <h2 id="paquetes">Especialidades de la casa</h2>
-    <p style="text-align:center; font-size:1.3rem; margin-bottom:4rem; color:#4a3c3c; max-width:800px; margin-left:auto; margin-right:auto;">
-        Nuestros platillos más representativos, preparados con ingredientes frescos y tradición mexicana.
+			<section style="background:#fffaf0; padding:6rem 0; text-align:center;">
+    <h2 id="paquetes">Nuestro Menú</h2>
+    <p style="font-size:1.3rem; margin-bottom:3rem; color:#4a3c3c; max-width:800px; margin-left:auto; margin-right:auto;">
+        Descubre todos nuestros platillos auténticos, desde los clásicos hasta las especialidades de la casa.
     </p>
 
-    <div id="seccionQuinta" class="container" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:2.5rem;">
-        
-        <!-- Mole Poblano -->
-        <div style="background:white; border-radius:16px; overflow:hidden; box-shadow:0 8px 25px rgba(200,65,12,0.12); transition:all 0.3s;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Chiles_en_nogada%2C_caseros%2C_M%C3%A9xico_6.jpg/800px-Chiles_en_nogada%2C_caseros%2C_M%C3%A9xico_6.jpg" alt="Mole Poblano" style="width:100%; height:200px; object-fit:cover;">
-            <div style="padding:1.4rem 1.6rem; text-align:center;">
-                <h3 style="font-size:1.7rem; color:#c2410c; margin:0 0 1.2rem; font-weight:700;">
-                    Mole Poblano — $280
-                </h3>
-                <ul style="list-style:none; padding:0; margin:0; font-size:1rem; color:#4a3c3c; text-align:left;">
-                    <li style="padding:0.7rem 0; border-bottom:1px solid #f0e8e0;">
-                        Pollo en mole tradicional con chocolate, chiles y especias
-                    </li>
-                    <li style="padding:0.7rem 0; border-bottom:1px solid #f0e8e0;">
-                        Acompañado de arroz rojo y tortillas de maíz
-                    </li>
-                    <li style="padding:0.7rem 0;">
-                        Sabor rico y equilibrado, receta familiar
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <!-- Imagen única que lleva al menú -->
+    <a href="menu.html" style="display:inline-block; transition:all 0.4s; cursor:pointer;">
+        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Platillos mexicanos variados" style="
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(194,65,12,0.3);
+            transition: all 0.4s ease;
+        ">
+    </a>
 
-        <!-- Pozole Rojo -->
-        <div style="background:white; border-radius:16px; overflow:hidden; box-shadow:0 8px 25px rgba(200,65,12,0.12); transition:all 0.3s;">
-            <img src="https://p3.hippopx.com/preview/275/477/pozole-soup-vibrant-mexican-pozole-bowl-fresh-lime-slices-close-up-mexican-cuisine-lime-wedges-lettuce-radish-traditional-dish.jpg" alt="Pozole Rojo" style="width:100%; height:200px; object-fit:cover;">
-            <div style="padding:1.4rem 1.6rem; text-align:center;">
-                <h3 style="font-size:1.7rem; color:#c2410c; margin:0 0 1.2rem; font-weight:700;">
-                    Pozole Rojo — $220
-                </h3>
-                <ul style="list-style:none; padding:0; margin:0; font-size:1rem; color:#4a3c3c; text-align:left;">
-                    <li style="padding:0.7rem 0; border-bottom:1px solid #f0e8e0;">
-                        Caldo con maíz pozolero, cerdo y chiles guajillo
-                    </li>
-                    <li style="padding:0.7rem 0; border-bottom:1px solid #f0e8e0;">
-                        Lechuga, rábano, orégano, limón y tostadas
-                    </li>
-                    <li style="padding:0.7rem 0;">
-                        Perfecto para compartir en familia o con amigos
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <!-- Efecto hover sutil en la imagen -->
+    <style>
+        a:hover img {
+            transform: scale(1.03);
+            box-shadow: 0 25px 60px rgba(194,65,12,0.45);
+        }
+    </style>
+</section>
 
         <!-- Chiles en Nogada -->
-        <div style="background:white; border-radius:16px; overflow:hidden; box-shadow:0 8px 25px rgba(200,65,12,0.12); transition:all 0.3s;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Chiles_en_nogada%2C_caseros%2C_M%C3%A9xico_2D.jpg/800px-Chiles_en_nogada%2C_caseros%2C_M%C3%A9xico_2D.jpg" alt="Chiles en Nogada" style="width:100%; height:200px; object-fit:cover;">
-            <div style="padding:1.4rem 1.6rem; text-align:center;">
-                <h3 style="font-size:1.7rem; color:#c2410c; margin:0 0 1.2rem; font-weight:700;">
-                    Chiles en Nogada — $350
-                </h3>
-                <ul style="list-style:none; padding:0; margin:0; font-size:1rem; color:#4a3c3c; text-align:left;">
-                    <li style="padding:0.7rem 0; border-bottom:1px solid #f0e8e0;">
-                        Chile poblano relleno de picadillo dulce con frutas
-                    </li>
-                    <li style="padding:0.7rem 0; border-bottom:1px solid #f0e8e0;">
-                        Salsa de nogada cremosa y granada fresca
-                    </li>
-                    <li style="padding:0.7rem 0;">
-                        Edición especial de temporada patriótica
-                    </li>
-                </ul>
-            </div>
-        </div>
+        
 
     </div>
 </section>
