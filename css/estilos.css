@@ -1,0 +1,381 @@
+
+		/* ESTILOS GENERALES - ESTILO MEXICANO VIBRANTE */
+		html, body { height: 100%; margin: 0; padding: 0; }
+		* { box-sizing: border-box; margin: 0; padding: 0; }
+		body {
+			font-family: 'Poppins', sans-serif;
+			background-color: #fffaf0; /* crema cálido mexicano */
+			color: #3c2f2f;
+			line-height: 1.7;
+		}
+		.container { width: 90%; max-width: 1366px; margin: 0 auto; }
+		main { padding-top: 90px; }
+
+		h2 {
+			font-family: 'Roboto', sans-serif;
+			font-size: 2.5rem;
+			font-weight: 700;
+			text-align: center;
+			text-transform: uppercase;
+			color: #c2410c; /* terracota mexicano */
+			margin-bottom: 1.5rem;
+			position: relative;
+		}
+		h2::after {
+			content: '';
+			width: 140px;
+			height: 6px;
+			background: #15803d; /* verde bandera */
+			position: absolute;
+			bottom: -12px;
+			left: 50%;
+			transform: translateX(-50%);
+			border-radius: 3px;
+		}
+
+		p { font-size: 1.1rem; color: #726868; }
+
+		/* NAVEGACIÓN */
+		nav {
+			position: fixed;
+			top: 0;
+			width: 100%;
+			background: rgba(255, 250, 240, 0.96);
+			backdrop-filter: blur(10px);
+			box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+			z-index: 1000;
+			padding: 15px 0;
+		}
+		#navigation { display: flex; justify-content: space-between; align-items: center; }
+		#main-nav { display: flex; list-style: none; }
+		#main-nav li { margin: 0 1.3rem; }
+		#main-nav li a, #main-nav + a {
+			color: #3c2f2f;
+			text-decoration: none;
+			text-transform: uppercase;
+			font-weight: 500;
+			font-size: 0.98rem;
+			transition: all 0.3s;
+		}
+		#main-nav li a:hover, #main-nav + a:hover { color: #c2410c; }
+		#main-nav + a {
+			border: 2px solid #c2410c;
+			padding: 10px 2.2em;
+			border-radius: 30px;
+			color: #c2410c;
+			font-weight: 600;
+		}
+		#main-nav + a:hover { background: #c2410c; color: white; }
+		#navigation span { color: #c2410c; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+
+		/* HERO - Imagen vibrante mexicana */
+		article > section:nth-child(1) {
+			background: linear-gradient(rgba(200, 65, 12, 0.35), rgba(200, 65, 12, 0.15)),
+			            url('https://images.pexels.com/photos/27365286/pexels-photo-27365286/free-photo-of-mexican-restaurant.jpeg') center/cover no-repeat fixed;
+			min-height: 85vh;
+			display: flex;
+			align-items: center;
+		}
+		#seccionPrimera h1 {
+			font-size: 4.5rem;
+			font-weight: 800;
+			color: white;
+			text-shadow: 4px 4px 15px rgba(0,0,0,0.7);
+			text-align: center;
+			text-transform: uppercase;
+			letter-spacing: 1.5px;
+		}
+
+		/* Sección Quiénes somos */
+		#seccionSegunda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;          /* ¡Esto centra horizontalmente todo el contenido! */
+    margin: 6rem auto;                /* Margen automático arriba/abajo y centrado */
+    max-width: 1200px;                /* Limita el ancho máximo para que no se estire demasiado */
+    padding: 0 1rem;                  /* Espacio lateral en móviles */
+}
+
+/* La imagen y el texto también se benefician del centrado */
+#seccionSegunda img {
+    flex: 1 1 40%;
+    max-width: 40%;
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+}
+
+#seccionSegunda div {
+    flex: 1 1 55%;
+    text-align: left;                 /* El texto se mantiene alineado a la izquierda dentro de su caja */
+}
+
+/* En móvil, todo se apila y centra */
+@media screen and (max-width: 959px) {
+    #seccionSegunda {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;           /* Centra el texto en móvil para que se vea equilibrado */
+    }
+
+    #seccionSegunda img {
+        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    #seccionSegunda div {
+        max-width: 90%;
+    }
+}
+
+		/* Servicios (ahora platillos destacados o tipo de experiencia) */
+		#seccionCuarta {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 2.2rem;
+			margin-top: 3rem;
+		}
+		#seccionCuarta div { text-align: center; transition: transform 0.3s; }
+		#seccionCuarta div:hover { transform: translateY(-12px); }
+		#seccionCuarta img {
+			width: 100%;
+			border-radius: 16px;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+		}
+
+		/* Paquetes → ahora secciones del menú o especialidades */
+		#seccionQuinta {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+			gap: 2.5rem;
+			margin-top: 4rem;
+		}
+		.col ul {
+			background: white;
+			border-radius: 16px;
+			overflow: hidden;
+			box-shadow: 0 12px 40px rgba(200,65,12,0.15);
+			transition: all 0.4s;
+		}
+		.col:hover ul {
+			transform: translateY(-14px);
+			box-shadow: 0 25px 55px rgba(200,65,12,0.25);
+		}
+		.package-header {
+			background: #c2410c;
+			color: white;
+			font-size: 1.9rem;
+			padding: 1.6rem;
+		}
+		.price {
+			background: #fff0e6;
+			color: #c2410c;
+			font-size: 1.6rem;
+			font-weight: 600;
+			padding: 1.2rem;
+		}
+		.col ul li {
+			padding: 1.3rem 1.6rem;
+			border-bottom: 1px solid #eee;
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			color: #4a3c3c;
+		}
+
+		/* Contacto y footer */
+		input, textarea {
+			width: 100%;
+			padding: 14px;
+			margin: 12px 0;
+			border: 2px solid #ffd1b3;
+			border-radius: 10px;
+			font-family: inherit;
+		}
+		input[type="submit"] {
+			background: #15803d;
+			color: white;
+			border: none;
+			padding: 16px 50px;
+			font-size: 1.15rem;
+			border-radius: 30px;
+			cursor: pointer;
+			transition: all 0.3s;
+		}
+		input[type="submit"]:hover {
+			background: #1a9e4d;
+			transform: translateY(-4px);
+		}
+		footer {
+			background: #3c2f2f;
+			color: #fffaf0;
+			padding: 3.5rem 0 1.8rem;
+			text-align: center;
+		}
+		#pieDePagina a svg {
+			width: 30px;
+			height: 30px;
+			margin: 0 1.2rem;
+			color: #e85d04;
+			transition: color 0.3s;
+		}
+		#pieDePagina a:hover svg { color: white; }
+
+		/* Responsive */
+		@media (max-width: 959px) {
+			#seccionSegunda, #seccionCuarta, #seccionQuinta { flex-direction: column; }
+			#seccionSegunda img { max-width: 100%; }
+		}
+		.package-header {
+    background: #c2410c;
+    color: white;
+    font-size: 1.7rem;
+    font-weight: 700;
+    padding: 1.4rem 1.6rem;
+    text-align: center; /* centrado para que se vea más bonito */
+}
+.col:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(200,65,12,0.2);
+}
+/* =============================================
+   MENÚ HAMBURGUESA + SIDEBAR PARA MÓVIL
+============================================= */
+
+/* Ícono hamburguesa (solo visible en móvil) */
+/* Ícono hamburguesa */
+/* Sidebar lateral izquierdo - Fondo sólido + estilos restaurados */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 280px;
+    height: 100vh;
+    background: #3c2f2f;               /* marrón oscuro sólido */
+    color: #ffffff;                    /* texto blanco */
+    transition: left 0.4s ease;
+    z-index: 1100;
+    padding-top: 90px;
+    box-shadow: 6px 0 30px rgba(0,0,0,0.6);
+    overflow-y: auto;
+}
+
+#sidebar.active {
+    left: 0;
+}
+
+/* Título o logo opcional en sidebar (si quieres poner el nombre del restaurante arriba) */
+#sidebar::before {
+    content: "Moisésitas";
+    display: block;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #c2410c;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+/* Lista de enlaces - estilos restaurados */
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar li {
+    padding: 1.2rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    transition: background 0.3s;
+}
+
+#sidebar li:hover {
+    background: rgba(194,65,12,0.15); /* toque naranja sutil al hover */
+}
+
+#sidebar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: block;
+}
+
+#sidebar a:hover {
+    color: #c2410c;
+}
+
+/* Overlay */
+#overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s;
+    z-index: 1000;
+}
+
+#overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Hamburguesa y responsive (sin cambios mayores) */
+#hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px;
+    height: 24px;
+    cursor: pointer;
+    z-index: 1200;
+}
+
+#hamburger span {
+    width: 100%;
+    height: 4px;
+    background: #c2410c;
+    border-radius: 2px;
+}
+
+@media screen and (max-width: 959px) {
+    #main-nav,
+    #navigation > a[href="#contacto"] {
+        display: none !important;
+    }
+
+    #hamburger {
+        display: flex !important;
+    }
+
+    #navigation {
+        justify-content: space-between;
+        padding: 0 15px;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    #hamburger {
+        display: none !important;
+    }
+}
+
+/* Animación X */
+#hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+#hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+#hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+.btn-menu:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 16px 40px rgba(194,65,12,0.5) !important;
+    background: linear-gradient(135deg, #e85d04, #c2410c) !important;
+}
