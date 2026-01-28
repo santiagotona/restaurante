@@ -10,6 +10,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
 	<!-- Icon fonts -->
+	<link rel="stylesheet" href="css/estilos.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 	<!-- estilos CSS -->
 	<style>
@@ -411,8 +412,10 @@
 					<li><a href="#acercade">nosotros</a></li>
 					<li><a href="#servicios">platillos</a></li>
 					<li><a href="#paquetes">especialidades</a></li>
+					<li><a href="#reservaciones">Reservaciones</a></li>
+					<li><a href="#eventos">Eventoss</a></li>
 				</ul>
-				<a href="#contacto">contacto</a>
+				<a href="index.html#contacto" class="btn-contacto">Contacto</a>
 			</div>
 			<div id="navigation" class="container">
         
@@ -441,6 +444,8 @@
             <li><a href="#servicios">Platillos</a></li>
             <li><a href="#paquetes">Especialidades</a></li>
             <li><a href="#contacto">Contacto</a></li>
+			<li><a href="#reservaciones">Reservaciones</a></li>
+			<li><a href="#eventos">Eventos</a></li>
         </ul>
     </div>
 
@@ -470,9 +475,9 @@
 				<div id="seccionSegunda" class="container">
 					<img src="https://images.pexels.com/photos/27365286/pexels-photo-27365286/free-photo-of-mexican-restaurant.jpeg" alt="Ambiente cálido mexicano">
 					<div>
-						<p>En El Sabor de México traemos lo mejor de la cocina tradicional con ingredientes frescos y recetas de generación en generación.</p>
+						<p><b>En El Sabor de México traemos lo mejor de la cocina tradicional con ingredientes frescos y recetas de generación en generación.</p>
 						<p>Desde los tacos al pastor hasta el mole poblano, cada platillo cuenta una historia de sabor y tradición.</p>
-						<p>¡Ven y vive la experiencia mexicana en cada bocado!</p>
+						<p>¡Ven y vive la experiencia mexicana en cada bocado!</b></p>
 					</div>
 				</div>
 			</section>
@@ -531,6 +536,156 @@
         
 
     </div>
+</section>
+<section id="reservaciones" style="background: linear-gradient(135deg, #3c2f2f, #2a1f1f); color: #fffaf0; padding: 7rem 0; text-align: center; position: relative; overflow: hidden;">
+    <!-- Fondo animado sutil -->
+    <div style="position: absolute; inset: 0; background: radial-gradient(circle at 30% 70%, rgba(194,65,12,0.08) 0%, transparent 50%); animation: pulse-bg 12s infinite alternate; z-index: 0;"></div>
+
+    <div class="container" style="position: relative; z-index: 1;">
+        <h2 style="color: #c2410c; margin-bottom: 2rem;">¡Reserva tu Mesa Hoy!</h2>
+        <p style="font-size: 1.4rem; margin-bottom: 4rem; max-width: 900px; margin-left: auto; margin-right: auto; opacity: 0.95;">
+            No te quedes sin lugar. Reserva fácilmente por llamada o WhatsApp y asegura tu experiencia en Moisésitas.
+        </p>
+
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 3rem;">
+            <!-- Botón Llamada - animado -->
+            
+
+            <!-- Botón WhatsApp - animado -->
+            <a href="https://wa.me/525512345678?text=Hola%20Moisésitas!%20Quiero%20reservar%20una%20mesa%20para..." target="_blank" style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background: linear-gradient(135deg, #25D366, #128C7E);
+                color: white;
+                padding: 2rem 3.5rem;
+                border-radius: 24px;
+                text-decoration: none;
+                width: 280px;
+                box-shadow: 0 12px 40px rgba(37,213,102,0.45);
+                transition: all 0.4s ease;
+                animation: pulse 2.3s infinite;
+            ">
+                <i class="fab fa-whatsapp" style="font-size: 3.8rem; margin-bottom: 1rem; animation: beat 1.8s infinite;"></i>
+                <span style="font-size: 1.5rem; font-weight: 700;">WhatsApp</span>
+                <span style="font-size: 1.3rem; margin-top: 0.5rem;">55-1234-5678</span>
+            </a>
+        </div>
+
+        <p style="margin-top: 4rem; font-size: 1.2rem; opacity: 0.9;">
+            Horario: Lunes a Domingo 13:00 – 23:00 hrs
+        </p>
+    </div>
+
+    <!-- Animaciones -->
+    <style>
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 12px 40px rgba(194,65,12,0.45); }
+            50% { transform: scale(1.05); box-shadow: 0 20px 60px rgba(194,65,12,0.6); }
+            100% { transform: scale(1); box-shadow: 0 12px 40px rgba(194,65,12,0.45); }
+        }
+
+        @keyframes ring {
+            0% { transform: rotate(0deg); }
+            10% { transform: rotate(15deg); }
+            20% { transform: rotate(-15deg); }
+            30% { transform: rotate(0deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        section[id="reservaciones"] a:hover {
+            transform: scale(1.08) translateY(-8px);
+            box-shadow: 0 25px 70px rgba(194,65,12,0.6) !important;
+        }
+    </style>
+</section>
+<section id="eventos" style="background: linear-gradient(to bottom, #fffaf0, #fdf8f0); padding: 7rem 0; position: relative; overflow: hidden;">
+    <!-- Fondo decorativo sutil -->
+    <div style="position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80') repeat; opacity: 0.05; z-index: 0;"></div>
+
+    <div class="container" style="position: relative; z-index: 1;">
+        <h2 style="margin-bottom: 2.5rem;">Celebra con Nosotros</h2>
+        <p style="text-align: center; font-size: 1.35rem; margin-bottom: 5rem; color: #4a3c3c; max-width: 900px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+            Ya sea un cumpleaños inolvidable, una cena romántica o un evento corporativo, en Moisésitas transformamos cada ocasión en una experiencia mexicana auténtica y llena de sabor.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 2.5rem;">
+            <!-- Tarjeta 1 -->
+            <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 12px 35px rgba(194,65,12,0.18); transition: all 0.4s ease; border: 1px solid rgba(194,65,12,0.1);">
+                <div style="position: relative;">
+                    <img src="https://www.bing.com/images/search?view=detailV2&ccid=qNIcLgPD&id=A11132A943E7F241B55C20D7C1844A5B153FF2CC&thid=OIP.qNIcLgPDwb3FsTfP04TChwHaD5&mediaurl=https%3a%2f%2fi.pinimg.com%2foriginals%2f39%2fa7%2fa0%2f39a7a092fd760ac037cca51e495d6248.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.a8d21c2e03c3c1bdc5b137cfd384c287%3frik%3dzPI%252fFVtKhMHXIA%26pid%3dImgRaw%26r%3d0&exph=1400&expw=2665&q=foto+de+salon+de+fiestas+aetetick&FORM=IRPRST&ck=E41EE2A06008CB22F485772E7D0ED39E&selectedIndex=1&itb=0" alt="Cumpleaños" style="width: 100%; height: 240px; object-fit: cover; transition: transform 0.6s ease;">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); padding: 1.5rem; color: white;">
+                        <h3 style="margin: 0; font-size: 1.7rem;">Cumpleaños y Aniversarios</h3>
+                    </div>
+                </div>
+                <div style="padding: 2rem 1.8rem; text-align: center;">
+                    <p style="color: #4a3c3c; margin-bottom: 1.8rem; font-size: 1.05rem;">
+                        Mesas decoradas al estilo mexicano, menú personalizado, piñata opcional y ambiente festivo.
+                    </p>
+                    <a href="#contacto" class="btn-evento" style="display: inline-block; background: #c2410c; color: white; padding: 14px 38px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.1rem; box-shadow: 0 8px 25px rgba(194,65,12,0.3); transition: all 0.3s;">
+                        Cotizar mi evento
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 12px 35px rgba(194,65,12,0.18); transition: all 0.4s ease; border: 1px solid rgba(194,65,12,0.1);">
+                <div style="position: relative;">
+                    <img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cena romántica" style="width: 100%; height: 240px; object-fit: cover; transition: transform 0.6s ease;">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); padding: 1.5rem; color: white;">
+                        <h3 style="margin: 0; font-size: 1.7rem;">Cenas Románticas</h3>
+                    </div>
+                </div>
+                <div style="padding: 2rem 1.8rem; text-align: center;">
+                    <p style="color: #4a3c3c; margin-bottom: 1.8rem; font-size: 1.05rem;">
+                        Iluminación tenue, mesa especial, menú romántico y detalles que harán de tu noche algo inolvidable.
+                    </p>
+                    <a href="#contacto" class="btn-evento" style="display: inline-block; background: #c2410c; color: white; padding: 14px 38px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.1rem; box-shadow: 0 8px 25px rgba(194,65,12,0.3); transition: all 0.3s;">
+                        Reservar mesa romántica
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 12px 35px rgba(194,65,12,0.18); transition: all 0.4s ease; border: 1px solid rgba(194,65,12,0.1);">
+                <div style="position: relative;">
+                    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Eventos corporativos" style="width: 100%; height: 240px; object-fit: cover; transition: transform 0.6s ease;">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); padding: 1.5rem; color: white;">
+                        <h3 style="margin: 0; font-size: 1.7rem;">Eventos Corporativos</h3>
+                    </div>
+                </div>
+                <div style="padding: 2rem 1.8rem; text-align: center;">
+                    <p style="color: #4a3c3c; margin-bottom: 1.8rem; font-size: 1.05rem;">
+                        Espacio privado, coffee breaks, comidas ejecutivas o cenas de equipo con menú adaptado.
+                    </p>
+                    <a href="#contacto" class="btn-evento" style="display: inline-block; background: #c2410c; color: white; padding: 14px 38px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.1rem; box-shadow: 0 8px 25px rgba(194,65,12,0.3); transition: all 0.3s;">
+                        Cotizar evento empresarial
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hover más pronunciado -->
+    <style>
+        section[id="eventos"] .btn-evento:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 18px 40px rgba(194,65,12,0.5) !important;
+            background: linear-gradient(135deg, #e85d04, #c2410c) !important;
+        }
+        section[id="eventos"] div:hover img {
+            transform: scale(1.08);
+        }
+        section[id="eventos"] div:hover {
+            box-shadow: 0 25px 60px rgba(194,65,12,0.35);
+            border-color: #c2410c;
+        }
+    </style>
 </section>
 
         
